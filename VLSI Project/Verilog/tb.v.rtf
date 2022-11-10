@@ -1,0 +1,36 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 module tb;\
+  reg c1,a1,a2,a3,a4,b1,b2,b3,b4;\
+  wire s1,s2,s3,s4,c5;\
+  cla uut(.c1(c1),.a1(a1),.a2(a2),.a3(a3),.a4(a4),.b1(b1),.b2(b2),.b3(b3),.b4(b4),.s1(s1),.s2(s2),.s3(s3),.s4(s4));\
+  initial begin\
+  $dumpfile("cla.vcd");\
+  $dumpvars(0,tb);\
+    $monitor($time," A=%b%b%b%b B=%b%b%b%b Cout=%b S=%b%b%b%b",a4,a3,a2,a1,b4,b3,b2,b1,c1,s4,s3,s2,s1);\
+    c1 = 1'b1;\
+    a1 = 1'b1;\
+    b1 = 1'b1;\
+    a2 = 1'b1;\
+    b2 = 1'b1;\
+    a3 = 1'b1;\
+    b3 = 1'b1;\
+    a4 = 1'b1;\
+    b4 = 1'b1;\
+    #2560 $finish;\
+  end\
+  always #5 a1 = ~a1;\
+  always #10 b1 = ~b1;\
+  always #20 a2 = ~a2;\
+  always #40 b2 = ~b2;\
+  always #80 a3 = ~a3;\
+  always #360 b3 = ~b3;\
+  always #420 a4 = ~a4;\
+  always #640 b4 = ~b4;\
+  always #1280 c1 = ~c1;\
+endmodule}
